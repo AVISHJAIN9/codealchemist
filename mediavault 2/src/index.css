@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 91%;
+
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 91%;
+
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 91%;
+
+    --primary: 82 100% 36%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 6%;
+    --secondary-foreground: 0 0% 91%;
+
+    --muted: 0 0% 9%;
+    --muted-foreground: 0 0% 53%;
+
+    --accent: 0 0% 9%;
+    --accent-foreground: 0 0% 91%;
+
+    --destructive: 4 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 100% / 0.07;
+    --border-bright: 0 0% 100% / 0.12;
+    --input: 0 0% 100% / 0.07;
+    --ring: 82 100% 36%;
+
+    --radius: 0px;
+
+    --nv-green: 82 100% 36%;
+    --nv-green-dim: 82 100% 23%;
+    --nv-green-glow: 82 100% 36% / 0.18;
+    --nv-green-border: 82 100% 36% / 0.28;
+    --nv-cyan: 195 100% 50%;
+    --nv-amber: 36 90% 55%;
+    --nv-purple: 261 100% 71%;
+
+    --surface-0: 0 0% 0%;
+    --surface-1: 0 0% 3%;
+    --surface-2: 0 0% 6%;
+    --surface-3: 0 0% 9%;
+    --surface-4: 0 0% 13%;
+
+    --font-display: 'Barlow Condensed', sans-serif;
+    --font-body: 'Barlow', sans-serif;
+    --font-mono: 'Share Tech Mono', monospace;
+
+    --sidebar-background: 0 0% 3%;
+    --sidebar-foreground: 0 0% 91%;
+    --sidebar-primary: 82 100% 36%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 9%;
+    --sidebar-accent-foreground: 0 0% 91%;
+    --sidebar-border: 0 0% 100% / 0.07;
+    --sidebar-ring: 82 100% 36%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  ::selection {
+    background: hsl(var(--nv-green));
+    color: #000;
+  }
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--surface-1)); }
+  ::-webkit-scrollbar-thumb { background: #333; }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--nv-green-dim)); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scanline {
+  0% { top: -3px; }
+  100% { top: 100%; }
+}
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.04; }
+  50% { opacity: 0.09; }
+}
+@keyframes ticker {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+@keyframes glowBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes waveAnim {
+  from { height: 4px; }
+  to { height: var(--h, 20px); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.25s ease;
+}
+.animate-fade-in {
+  animation: fadeIn 0.2s ease;
+}
+.animate-grid-pulse {
+  animation: gridPulse 4s ease infinite;
+}
+.animate-ticker {
+  animation: ticker 30s linear infinite;
+}
+.animate-glow-blink {
+  animation: glowBlink 1.2s ease infinite;
+}
+.animate-spin-fast {
+  animation: spin 0.7s linear infinite;
+}
